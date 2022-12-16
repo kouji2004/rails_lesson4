@@ -5,12 +5,13 @@ class PostImagesController < ApplicationController
 
   def create
     @post_image = PostImage.new(post_image_params)
-    @post_image.users_id = current_user.id
+    @post_image.user_id = current_user.id
     @post_image.save
     redirect_to post_images_path
   end
 
   def index
+    @post_images = PostImage.all
   end
 
   def show
